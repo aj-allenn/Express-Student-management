@@ -1,40 +1,59 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <title>Student Management</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <style>
-    body{font-family:Arial;padding:20px;max-width:900px;margin:auto}
-    table{width:100%;border-collapse:collapse;margin-top:10px}
-    th,td{padding:8px;border:1px solid #ddd;text-align:left}
-    form>div{margin:6px 0}
-    button{padding:6px 10px}
-  </style>
 </head>
 <body>
-  <h1>Student Management</h1>
+
+  <h2>Student Form</h2>
 
   <form id="studentForm">
     <input type="hidden" id="studentId" />
-    <div><label>Name: <input id="name" required /></label></div>
-    <div><label>Email: <input id="email" required type="email" /></label></div>
-    <div><label>Roll Number: <input id="rollNumber" required /></label></div>
-    <div>
-      <label>Subject1: <input id="subject1" type="number" required /></label>
-      <label>Subject2: <input id="subject2" type="number" required /></label>
-      <label>Subject3: <input id="subject3" type="number" required /></label>
-    </div>
-    <div>
-      <button type="submit" id="saveBtn">Save</button>
-      <button type="button" id="clearBtn">Clear</button>
-    </div>
+
+    <label>Name:</label>
+    <input id="name" required /><br /><br />
+
+    <label>Email:</label>
+    <input id="email" required /><br /><br />
+
+    <label>Roll Number:</label>
+    <input id="rollNumber" required /><br /><br />
+
+    <!-- SUBJECTS -->
+    <h3>Subjects</h3>
+
+    <label>Subject 1 Name:</label>
+    <input id="subject1Name" required />
+
+    <label>Marks:</label>
+    <input id="subject1Marks" type="number" required /><br /><br />
+
+    <label>Subject 2 Name:</label>
+    <input id="subject2Name" required />
+
+    <label>Marks:</label>
+    <input id="subject2Marks" type="number" required /><br /><br />
+
+    <label>Subject 3 Name:</label>
+    <input id="subject3Name" required />
+
+    <label>Marks:</label>
+    <input id="subject3Marks" type="number" required /><br /><br />
+
+    <button type="submit">Save</button>
   </form>
 
-  <h2>Students</h2>
-  <table id="studentsTable">
+  <h2>All Students</h2>
+  <table border="1" id="studentTable">
     <thead>
-      <tr><th>Name</th><th>Email</th><th>Roll</th><th>Marks</th><th>Actions</th></tr>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Roll</th>
+        <th>Subjects</th>
+        <th>Actions</th>
+      </tr>
     </thead>
     <tbody></tbody>
   </table>
