@@ -1,45 +1,37 @@
-import express from "express";
 import dotenv from "dotenv";
+dotenv.config();
+import express from "express";
 import cors from "cors";
-import mongoose from "mongoose";
 import path from "path";
 import { fileURLToPath } from "url";
 
+import connectDB from "./config/db.js";
+import authRoutes from "./routes/authRoutes.js";
 import studentRoutes from "./routes/studentRoutes.js";
 
-dotenv.config();
+const PORT = process.env.PORT || 4004;
 
-const PORT = process.env.PORT ?? 4000;
-const MONGO_URI=process.env.MONGO_URI;
-
-const app =express();
-
-
+const app = express();
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({ extended: true }));
 
+// Serve frontend files
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, "public")));
 
+// Routes
+app.use("/api/auth", authRoutes);
 app.use("/api/students", studentRoutes);
 
+// Error handling
 app.use((err, req, res, next) => {
   console.error(err);
   res.status(err.status || 500).json({ message: err.message || "Internal Server Error" });
 });
 
-async function start() {
-  try {
-   await mongoose.connect(MONGO_URI);
-
-    console.log("MongoDB connected");
-    app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
-  } catch (err) {
-    console.error("Failed to connect to MongoDB", err);
-    process.exit(1);
-  }
-}
-
-start();
+// Start server
+connectDB().then(() => {
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+});

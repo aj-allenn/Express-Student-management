@@ -6,7 +6,7 @@ import {
   updateStudent,
   deleteStudent
 } from "../controllers/studentController.js";
-
+import { verifyToken } from "../middleware/authMiddleware.js";
 const router = express.Router();
 
 router.post("/", createStudent);

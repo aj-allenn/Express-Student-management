@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Student Management</h1>
+<button id="logoutBtn">Logout</button>
+
+<form id="studentForm">
+  <input id="studentId" type="hidden" />
+  <input id="name" placeholder="Name" required />
+  <input id="email" placeholder="Email" required />
+  <input id="rollNumber" placeholder="Roll Number" required />
+  <input id="subject1" type="number" placeholder="Subject1" required />
+  <input id="subject2" type="number" placeholder="Subject2" required />
+  <input id="subject3" type="number" placeholder="Subject3" required />
+  <button type="submit">Save</button>
+</form>
+
+<table>
+  <thead>
+    <tr><th>Name</th><th>Email</th><th>Roll</th><th>Marks</th><th>Actions</th></tr>
+  </thead>
+  <tbody id="studentsTable"></tbody>
+</table>
+
+<script src="main.js"></script>
+
+</body>
+</html>
