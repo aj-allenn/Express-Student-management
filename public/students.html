@@ -1,33 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Students | Student Manager</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f0f2f5;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    #userAvatar img, #userAvatar div {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: inline-block;
+      text-align: center;
+      line-height: 40px;
+      background: #22d3ee;
+      color: white;
+      font-weight: bold;
+    }
+
+    form {
+      margin-bottom: 20px;
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    input {
+      margin: 5px 0;
+      padding: 8px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 8px 12px;
+      margin-top: 5px;
+      cursor: pointer;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+    }
+
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+      text-align: left;
+    }
+
+    img.student-img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+  </style>
 </head>
 <body>
-    <h1>Student Management</h1>
-<button id="logoutBtn">Logout</button>
+  <header>
+    <h2>Student Management</h2>
+    <div id="userAvatar"></div>
+    <button id="logoutBtn">Logout</button>
+  </header>
 
-<form id="studentForm">
-  <input id="studentId" type="hidden" />
-  <input id="name" placeholder="Name" required />
-  <input id="email" placeholder="Email" required />
-  <input id="rollNumber" placeholder="Roll Number" required />
-  <input id="subject1" type="number" placeholder="Subject1" required />
-  <input id="subject2" type="number" placeholder="Subject2" required />
-  <input id="subject3" type="number" placeholder="Subject3" required />
-  <button type="submit">Save</button>
-</form>
+  <!-- Student form -->
+  <form id="studentForm">
+    <input type="hidden" id="studentId">
+    <input type="text" id="name" placeholder="Full Name" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="text" id="rollNumber" placeholder="Roll Number" required>
+    <input type="file" id="image" accept="image/*">
+    <input type="number" id="subject1" placeholder="Subject 1 Marks" required>
+    <input type="number" id="subject2" placeholder="Subject 2 Marks" required>
+    <input type="number" id="subject3" placeholder="Subject 3 Marks" required>
+    <button type="submit">Save Student</button>
+  </form>
 
-<table>
-  <thead>
-    <tr><th>Name</th><th>Email</th><th>Roll</th><th>Marks</th><th>Actions</th></tr>
-  </thead>
-  <tbody id="studentsTable"></tbody>
-</table>
+  <!-- Student table -->
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Roll</th>
+        <th>Marks</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="studentsTable"></tbody>
+  </table>
 
-<script src="main.js"></script>
-
+  <script src="main.js"></script>
 </body>
 </html>
